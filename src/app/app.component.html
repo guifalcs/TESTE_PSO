@@ -14,27 +14,41 @@
       <input
         type="text"
         placeholder="Ex: Aprender sobre serviços e chamadas http"
+        maxlength="200"
       />
     </div>
 
     <button class="salvar">Salvar</button>
     <button class="limpar">Limpar</button>
-
-
   </div>
 
   <div class="tarefas">
-
     <h1>Tarefas</h1>
 
-      <ul>
-        <li>
-          <h3 class="tituloTarefa">Estudar Node JS</h3>
-          <p class="descTarefa">Preciso aprender como criar um servidor backend, conectar com o mySql e alimentar o lado do cliente com os dados</p>
-          <button class="excluir">Excluir</button>
-        </li>
-      </ul>
+    <ul>
+      <li *ngFor="let tarefa of tarefasPaginadas">
+        <h3 class="tituloTarefa">{{ tarefa.titulo }}</h3>
+        <p class="descTarefa">{{ tarefa.descricao }}</p>
+        <p class="dataTarefa">Criada em: {{ tarefa.dataCriacao }}</p>
+        <button class="editar">Editar</button>
+        <button class="excluir">Excluir</button>
+      </li>
+    </ul>
 
+    <div class="paginacao">
+      <button
+        (click)="mudarPagina(paginaAtual - 1)"
+        [disabled]="paginaAtual === 1"
+      >
+        Anterior
+      </button>
 
+      <button
+        (click)="mudarPagina(paginaAtual + 1)"
+        [disabled]="paginaAtual === totalPaginas()"
+      >
+        Próxima
+      </button>
+    </div>
   </div>
 </div>

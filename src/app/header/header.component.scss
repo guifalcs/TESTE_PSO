@@ -11,3 +11,19 @@
   font-size: 3em;
   margin-left: 0.5em;
 }
+
+@media (max-width: 577px) {
+  .header{
+    padding: 1em;
+  }
+}
+
+@media (max-width: 353px) {
+  .header{
+    padding: 2.5em;
+  }
+
+  .title{
+    margin-left: 0;
+  }
+}
