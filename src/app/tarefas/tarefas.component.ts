@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tarefas',
@@ -7,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TarefasComponent implements OnInit {
 
-  constructor() { }
+  //criação do formulario
+
+  formulario: FormGroup;
+
+  constructor(private fb: FormBuilder ) { }
 
   ngOnInit(): void {
+    this.formulario = this.fb.group({
+      titulo: '',
+      descricao: ''
+    });
   }
 
+  //Array de tarefas
 
   tarefas = [
     {
@@ -74,7 +84,7 @@ export class TarefasComponent implements OnInit {
   }
 
   limpar(){
-    alert('Limpado')
+    this.formulario.reset()
   }}
 
 

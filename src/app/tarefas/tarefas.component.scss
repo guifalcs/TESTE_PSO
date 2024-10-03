@@ -16,6 +16,8 @@ $cor-editar: #7d91c3;
   width: 100vw;
   justify-content: center;
   gap: 2em;
+  text-shadow: 1px 1px 3px rgba(95, 92, 92, 0.5);
+
 
   button {
     width: 5em;
@@ -32,7 +34,6 @@ $cor-editar: #7d91c3;
   .addTarefas {
     width: 40%;
     padding: 2em;
-
     .primeiraPergunta,
     .pergunta {
       margin-top: 3em;
@@ -167,6 +168,14 @@ $cor-editar: #7d91c3;
     gap: 0.5em;
 
     .addTarefas{
+      margin-right: 1em;
+
+      input{
+        width: 90%;
+      }
+    }
+
+    .addTarefas{
       margin-top: 30em;
     }
 
@@ -175,9 +184,9 @@ $cor-editar: #7d91c3;
     }
   }
 
-  @media (max-width: 434px) {
+  @media (max-width: 494px) {
     .tarefas{
-      height: 140%;
+      height: 138%;
     }
   }
 
