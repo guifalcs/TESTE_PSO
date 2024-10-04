@@ -1,3 +1,4 @@
+import { TarefasService } from './tarefas.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -8,53 +9,40 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class TarefasComponent implements OnInit {
 
+  //Inicialização Tarefas
+
+  tarefas: any[] = [];
+
   //criação do formulario
 
   formulario: FormGroup;
 
-  constructor(private fb: FormBuilder ) { }
+  constructor(
+    private fb: FormBuilder,
+    private tarefasService: TarefasService
+  ) { }
 
   ngOnInit(): void {
     this.formulario = this.fb.group({
       titulo: '',
       descricao: ''
     });
+
+    this.getTarefas()
   }
 
   //Array de tarefas
 
-  tarefas = [
-    {
-      titulo: 'Estudar Node JS',
-      descricao: "Preciso aprender a criar um servidor backend utilizando Node.js, conectá-lo ao MySQL para gerenciar dados e alimentar o frontend, garantindo que as informações sejam transmitidas de forma eficiente.",
-      dataCriacao: '3/10/24'
-    },
-    {
-      titulo: 'Praticar Git',
-      descricao: "Preciso aprender a criar um servidor backend utilizando Node.js, conectá-lo ao MySQL para gerenciar dados e alimentar o frontend, garantindo que as informações sejam transmitidas de forma eficiente.",
-      dataCriacao: '3/10/24'
-    },
-    {
-      titulo: 'Finalizar projeto de frontend',
-      descricao: "Preciso aprender a criar um servidor backend utilizando Node.js, conectá-lo ao MySQL para gerenciar dados e alimentar o frontend, garantindo que as informações sejam transmitidas de forma eficiente.",
-      dataCriacao: '3/10/24'
-    },
-    {
-      titulo: 'Ler um livro sobre design de software',
-      descricao: "Escolher um livro que aborde padrões de design e boas práticas na construção de software.",
-      dataCriacao: '3/10/24'
-    },
-    {
-      titulo: 'Fazer um curso de APIs REST',
-      descricao: "Encontrar um curso online que ensine a criar e consumir APIs RESTful, aplicando conceitos de segurança.",
-      dataCriacao: '3/10/24'
-    },
-    {
-      titulo: 'Configurar ambiente de desenvolvimento',
-      descricao: "Instalar e configurar o Visual Studio Code, extensões necessárias e ferramentas para desenvolvimento eficiente.",
-      dataCriacao: '3/10/24'
-    }
-  ]
+  getTarefas() {
+    this.tarefasService.getTarefas().subscribe(
+      (data: any) => {
+        this.tarefas = data;
+      },
+      (error: any) => {
+        console.error('Erro ao obter tarefas:', error);
+      }
+    );
+  }
 
   //Paginação:
 
