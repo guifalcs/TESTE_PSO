@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class TarefasComponent implements OnInit {
 
-  //Inicialização Tarefas
+  //Inicialização tarefas
 
   tarefas: any[] = [];
 
@@ -17,10 +17,14 @@ export class TarefasComponent implements OnInit {
 
   formulario: FormGroup;
 
+  //Construtor
+
   constructor(
     private fb: FormBuilder,
     private tarefasService: TarefasService
   ) { }
+
+  //Inicialização do componente
 
   ngOnInit(): void {
     this.formulario = this.fb.group({
@@ -31,7 +35,7 @@ export class TarefasComponent implements OnInit {
     this.getTarefas()
   }
 
-  //Array de tarefas
+  //Obtendo as tarefas via API
 
   getTarefas() {
     this.tarefasService.getTarefas().subscribe(
@@ -65,7 +69,15 @@ export class TarefasComponent implements OnInit {
     this.paginaAtual = pagina;
   }
 
-  //Ações
+  //Ações dos botões da aplicação
+
+  excluir(){
+    alert('Tarefa excluida')
+  }
+
+  editar(){
+    alert('Tarefa editada')
+  }
 
   salvar(){
     alert('Tarefa salva')
@@ -74,5 +86,6 @@ export class TarefasComponent implements OnInit {
   limpar(){
     this.formulario.reset()
   }}
+
 
 
