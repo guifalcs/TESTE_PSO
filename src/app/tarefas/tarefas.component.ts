@@ -28,6 +28,7 @@ export class TarefasComponent implements OnInit {
 
   ngOnInit(): void {
     this.formulario = this.fb.group({
+      id: '',
       titulo: '',
       descricao: ''
     });
@@ -71,16 +72,29 @@ export class TarefasComponent implements OnInit {
 
   //Ações dos botões da aplicação
 
-  excluir(){
-    alert('Tarefa excluida')
+  excluir(id: number){
+    if (confirm('Tem certeza que deseja excluir a tarefa?')) {
+    this.tarefasService.deleteTarefas(id).subscribe(
+      (data: any) => {
+        this.tarefas = this.tarefas.filter(tarefa => tarefa.id !== id);
+      },
+      (error: any) => {
+        console.error('Erro ao excluir tarefa:', error);
+      }
+    );
   }
-
-  editar(){
-    alert('Tarefa editada')
   }
 
   salvar(){
-    alert('Tarefa salva')
+    this.tarefasService.addTarefas(this.formulario.value).subscribe(
+      (data: any) => {
+        this.tarefas.push(data);
+        this.formulario.reset();
+      },
+      (error: any) => {
+        console.error('Erro ao adicionar tarefa:', error);
+      }
+    )
   }
 
   limpar(){

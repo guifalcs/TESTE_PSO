@@ -35,9 +35,9 @@
       <li *ngFor="let tarefa of tarefasPaginadas">
         <h3 class="tituloTarefa">{{ tarefa.titulo }}</h3>
         <p class="descTarefa">{{ tarefa.descricao }}</p>
-        <p class="dataTarefa">Criada em: {{ tarefa.dataCriacao }}</p>
-        <button class="editar" (click)="editar()">Editar</button>
-        <button class="excluir" (click)="excluir()">Excluir</button>
+        <p class="dataTarefa">Criada em: {{ tarefa.dataCriacao | date:'dd/MM/yyyy'}}</p>
+        <button class="editar">Editar</button>
+        <button class="excluir" (click)="excluir(tarefa.id)">Excluir</button>
       </li>
     </ul>
 

@@ -15,4 +15,12 @@ export class TarefasService {
   getTarefas(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
+
+  addTarefas(tarefa: any): Observable<any> {
+    return this.http.post(this.apiUrl, tarefa);
+  }
+
+  deleteTarefas(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }
