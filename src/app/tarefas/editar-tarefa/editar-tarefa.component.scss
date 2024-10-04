@@ -1,0 +1,102 @@
+$cor-fundo: #93a5d7;
+$cor-hover: #5e71a0;
+$cor-desativado: rgb(156, 154, 154);
+$cor-excluir: rgb(251, 87, 87);
+$cor-editar: #7d91c3;
+
+.popUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); // Fundo semi-transparente
+
+  .popUpContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 3em;
+    border-radius: 10px;
+    background-color: #fff; // Fundo branco para o popup
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px;
+    width: 400px; // Largura do popup
+
+    .close {
+      align-self: flex-end;
+      font-size: 24px;
+      color: #aaa;
+      cursor: pointer;
+
+      &:hover {
+        color: $cor-excluir; // Usando a variável de cor para o hover
+      }
+    }
+
+    h2 {
+      margin: 0 0 1em 0;
+      color: #333;
+      text-align: center;
+    }
+
+    .pergunta {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1em;
+
+      label {
+        margin-bottom: 0.5em;
+        color: #555;
+      }
+
+      input {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 0.5em;
+        width: 100%;
+
+        &:focus {
+          border-color: $cor-fundo;
+          outline: none;
+        }
+
+        &::placeholder {
+          font-style: italic;
+        }
+      }
+    }
+
+    .botoes{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1em;
+ }
+
+    button {
+      margin-top: 2em;
+      padding: 0.5em;
+      border: none;
+      border-radius: 5px;
+      width: 30%;
+      cursor: pointer;
+
+      &.salvar {
+        background-color: $cor-fundo;
+        color: white;
+
+        &:hover {
+          background-color: $cor-hover;
+        }
+      }
+
+      &.limpar {
+        background-color: $cor-desativado;
+        color: white;
+
+        &:hover {
+          background-color: darken($cor-desativado, 10%);
+        }
+      }
+    }
+  }
+}
+

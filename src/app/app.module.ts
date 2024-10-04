@@ -1,3 +1,4 @@
+import { EditarTarefaComponent } from './tarefas/editar-tarefa/editar-tarefa.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -12,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     HeaderComponent,
-    TarefasComponent
+    TarefasComponent,
+    EditarTarefaComponent
   ],
   imports: [
     BrowserModule,
