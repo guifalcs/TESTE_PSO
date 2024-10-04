@@ -86,6 +86,12 @@ export class TarefasComponent implements OnInit {
   }
 
   salvar(){
+
+    if(this.formulario.value.titulo == '' || this.formulario.value.descricao == ''){
+      alert('Preencha todos os campos!')
+      return;
+    }
+
     this.tarefasService.addTarefas(this.formulario.value).subscribe(
       (data: any) => {
         this.tarefas.push(data);
