@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 
 export class TarefasService {
 
-  private apiUrl = 'http://localhost:8081/tasks';
+  private apiUrl = environment.apiKey;
 
   constructor(private http: HttpClient) {}
 

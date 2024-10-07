@@ -6,36 +6,25 @@ $cor-editar: #7d91c3;
 
 .popUp {
   position: fixed;
-  top: 0; // Começa do topo da tela
-  left: 0; // Começa do lado esquerdo da tela
-  width: 100vw;  // O fundo cobre toda a tela
-  height: 100vh; // A altura cobre toda a tela
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); // Fundo escuro com opacidade
-  transition: background-color 0.3s ease; // Efeito de transição suave
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
 
   .popUpContainer {
     display: flex;
     flex-direction: column;
     padding: 3em;
     border-radius: 10px;
-    background-color: #fff; // Fundo branco para o popup
+    background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px;
-    width: 400px; // Largura do popup
-
-    .close {
-      align-self: flex-end;
-      font-size: 24px;
-      color: #aaa;
-      cursor: pointer;
-
-      &:hover {
-        color: $cor-excluir; // Usando a variável de cor para o hover
-      }
-    }
+    width: 400px;
 
     h2 {
       margin: 0 0 1em 0;

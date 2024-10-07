@@ -5,10 +5,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-tarefas',
   templateUrl: './tarefas.component.html',
-  styleUrls: ['./tarefas.component.scss']
+  styleUrls: ['./tarefas.component.scss'],
 })
 export class TarefasComponent implements OnInit {
-
   //Inicialização tarefas
 
   tarefas: any[] = [];
@@ -22,7 +21,7 @@ export class TarefasComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private tarefasService: TarefasService
-  ) { }
+  ) {}
 
   //Inicialização do componente
 
@@ -30,10 +29,10 @@ export class TarefasComponent implements OnInit {
     this.formulario = this.fb.group({
       id: '',
       titulo: '',
-      descricao: ''
+      descricao: '',
     });
 
-    this.getTarefas()
+    this.getTarefas();
   }
 
   //Obtendo as tarefas via API
@@ -51,8 +50,10 @@ export class TarefasComponent implements OnInit {
 
   //Reatividade
 
-  onAtualizar(evento){
-    if(evento.atualizarForm = true){this.getTarefas()}
+  onAtualizar(evento) {
+    if ((evento.atualizarForm = true)) {
+      this.getTarefas();
+    }
   }
 
   //Paginação:
@@ -78,35 +79,37 @@ export class TarefasComponent implements OnInit {
 
   //Modal
 
-    mostrarModal: number | null = null;
+  mostrarModal: number | null = null;
 
-    editarTarefa(id: number) {
-      this.mostrarModal = id;
-    }
+  editarTarefa(id: number) {
+    this.mostrarModal = id;
+  }
 
-    fecharModal() {
-      this.mostrarModal = null;
-    }
+  fecharModal() {
+    this.mostrarModal = null;
+  }
 
   //Ações dos botões da aplicação
 
-  excluir(id: number){
+  excluir(id: number) {
     if (confirm('Tem certeza que deseja excluir a tarefa?')) {
-    this.tarefasService.deleteTarefas(id).subscribe(
-      (data: any) => {
-        this.tarefas = this.tarefas.filter(tarefa => tarefa.id !== id);
-      },
-      (error: any) => {
-        console.error('Erro ao excluir tarefa:', error);
-      }
-    );
-  }
+      this.tarefasService.deleteTarefas(id).subscribe(
+        (data: any) => {
+          this.tarefas = this.tarefas.filter((tarefa) => tarefa.id !== id);
+        },
+        (error: any) => {
+          console.error('Erro ao excluir tarefa:', error);
+        }
+      );
+    }
   }
 
-  salvar(){
-
-    if(this.formulario.value.titulo == '' || this.formulario.value.descricao == ''){
-      alert('Preencha todos os campos!')
+  salvar() {
+    if (
+      this.formulario.value.titulo == '' ||
+      this.formulario.value.descricao == ''
+    ) {
+      alert('Preencha todos os campos!');
       return;
     }
 
@@ -118,11 +121,10 @@ export class TarefasComponent implements OnInit {
       (error: any) => {
         console.error('Erro ao adicionar tarefa:', error);
       }
-    )
+    );
   }
 
-  limpar(){
-    this.formulario.reset()
-  }}
-
-
+  limpar() {
+    this.formulario.reset();
+  }
+}
