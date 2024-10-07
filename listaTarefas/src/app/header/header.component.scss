@@ -1,0 +1,30 @@
+.header{
+  height: 6em;
+  background-color: #5e71a0;
+  display: flex;
+  align-items: center;
+  font-size: x-large;
+}
+
+.title{
+  color: white;
+  font-size: 3em;
+  margin-left: 0.5em;
+  text-shadow: .1em .1em 0 hsl(234, 30%, 37%);
+}
+
+@media (max-width: 577px) {
+  .header{
+    padding: 1em;
+  }
+}
+
+@media (max-width: 353px) {
+  .header{
+    padding: 2.5em;
+  }
+
+  .title{
+    margin-left: 0;
+  }
+}
