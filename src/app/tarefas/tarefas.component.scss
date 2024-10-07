@@ -18,7 +18,6 @@ $cor-editar: #7d91c3;
   gap: 2em;
   text-shadow: 1px 1px 3px rgba(95, 92, 92, 0.5);
 
-
   button {
     width: 5em;
     padding: 4px;
@@ -84,6 +83,7 @@ $cor-editar: #7d91c3;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
       rgba(0, 0, 0, 0.05) 0px 5px 10px;
     padding: 2em;
+    word-break: break-all;
 
     .descTarefa {
       margin-top: 1em;
@@ -92,10 +92,8 @@ $cor-editar: #7d91c3;
     }
 
     ul {
-      margin-top: 3em;
-
       li {
-        margin-top: 1.5em;
+        margin-top: 1.25em;
 
         .dataTarefa {
           color: rgb(29, 27, 27);
@@ -151,13 +149,13 @@ $cor-editar: #7d91c3;
   }
 
   @media (max-width: 1363px) {
-    .tarefas{
+    .tarefas {
       height: 100%;
     }
   }
 
   @media (max-width: 1095px) {
-    .tarefas{
+    .tarefas {
       height: 110%;
     }
   }
@@ -167,31 +165,31 @@ $cor-editar: #7d91c3;
     align-items: center;
     gap: 0.5em;
 
-    .addTarefas{
+    .addTarefas {
       margin-right: 1em;
 
-      input{
+      input {
         width: 90%;
       }
     }
 
-    .addTarefas{
+    .addTarefas {
       margin-top: 30em;
     }
 
-    .tarefas{
+    .tarefas {
       width: 70%;
     }
   }
 
   @media (max-width: 494px) {
-    .tarefas{
+    .tarefas {
       height: 138%;
     }
   }
 
   @media (max-width: 397px) {
-    .addTarefas{
+    .addTarefas {
       margin-top: 40em;
     }
   }

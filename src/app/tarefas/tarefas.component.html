@@ -10,7 +10,7 @@
         <input type="text"
         placeholder="Ex: Estudar Angular"
         formControlName="titulo"
-        maxlength="70"
+        maxlength="50"
         />
       </div>
 
@@ -19,7 +19,7 @@
         <input
           type="text"
           placeholder="Ex: Aprender sobre serviços e chamadas http"
-          maxlength="200"
+          maxlength="150"
           formControlName="descricao"
         />
       </div>
@@ -34,13 +34,12 @@
 
     <ul>
       <li *ngFor="let tarefa of tarefasPaginadas">
-        <h3 class="tituloTarefa">{{ tarefa.titulo }}</h3>
-        <p class="descTarefa">{{ tarefa.descricao }}</p>
-        <p class="dataTarefa">Criada em: {{ tarefa.dataCriacao | date:'dd/MM/yyyy'}}</p>
-        <button class="editar" (click)="editarTarefa(tarefa.id)">Editar</button>
-        <button class="excluir" (click)="excluir(tarefa.id)">Excluir</button>
-        <app-editar-tarefa *ngIf="mostrarModal === tarefa.id" (fecharModal)="fecharModal()" [idTarefa]="tarefa.id" (atualizar)="onAtualizar($event)"></app-editar-tarefa>
-
+          <h3 class="tituloTarefa">{{ tarefa.titulo }}</h3>
+          <p class="descTarefa">{{ tarefa.descricao }}</p>
+          <p class="dataTarefa">Criada em: {{ tarefa.dataCriacao | date:'dd/MM/yyyy'}}</p>
+          <button class="editar" (click)="editarTarefa(tarefa.id)">Editar</button>
+          <button class="excluir" (click)="excluir(tarefa.id)">Excluir</button>
+          <app-editar-tarefa *ngIf="mostrarModal === tarefa.id" (fecharModal)="fecharModal()" [idTarefa]="tarefa.id" (atualizar)="onAtualizar($event)"></app-editar-tarefa>
       </li>
     </ul>
 
