@@ -49,6 +49,12 @@ export class TarefasComponent implements OnInit {
     );
   }
 
+  //Reatividade
+
+  onAtualizar(evento){
+    if(evento.atualizarForm = true){this.getTarefas()}
+  }
+
   //Paginação:
 
   tarefasPorPag: number = 3;
@@ -69,6 +75,18 @@ export class TarefasComponent implements OnInit {
     }
     this.paginaAtual = pagina;
   }
+
+  //Modal
+
+    mostrarModal: number | null = null;
+
+    editarTarefa(id: number) {
+      this.mostrarModal = id;
+    }
+
+    fecharModal() {
+      this.mostrarModal = null;
+    }
 
   //Ações dos botões da aplicação
 
@@ -106,6 +124,5 @@ export class TarefasComponent implements OnInit {
   limpar(){
     this.formulario.reset()
   }}
-
 
 

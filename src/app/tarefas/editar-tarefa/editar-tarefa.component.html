@@ -1,11 +1,13 @@
 <div class="popUp">
   <div class="popUpContainer">
+    <form [formGroup]="formulario" (ngSubmit)="salvar()">
     <div class="pergunta">
       <label for="nome">Título:</label>
           <input type="text"
           placeholder="Ex: Estudar Angular"
           formControlName="titulo"
           maxlength="70"
+          formControlName="titulo"
           />
     </div>
 
@@ -19,8 +21,9 @@
           />
     </div>
     <div class="botoes">
-      <button class="salvar">Salvar</button>
-      <button class="limpar">Cancelar</button>
+      <button class="salvar" type="submit">Salvar</button>
+      <button class="limpar" (click)="cancelar()">Cancelar</button>
     </div>
+  </form>
   </div>
 </div>

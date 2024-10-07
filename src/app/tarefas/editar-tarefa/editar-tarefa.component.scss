@@ -5,11 +5,17 @@ $cor-excluir: rgb(251, 87, 87);
 $cor-editar: #7d91c3;
 
 .popUp {
+  position: fixed;
+  top: 0; // Começa do topo da tela
+  left: 0; // Começa do lado esquerdo da tela
+  width: 100vw;  // O fundo cobre toda a tela
+  height: 100vh; // A altura cobre toda a tela
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); // Fundo semi-transparente
+  background-color: rgba(0, 0, 0, 0.5); // Fundo escuro com opacidade
+  transition: background-color 0.3s ease; // Efeito de transição suave
 
   .popUpContainer {
     display: flex;
@@ -51,7 +57,7 @@ $cor-editar: #7d91c3;
         border: 1px solid #ccc;
         border-radius: 5px;
         padding: 0.5em;
-        width: 100%;
+        width: 90%;
 
         &:focus {
           border-color: $cor-fundo;
@@ -64,12 +70,12 @@ $cor-editar: #7d91c3;
       }
     }
 
-    .botoes{
+    .botoes {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 1em;
- }
+    }
 
     button {
       margin-top: 2em;
@@ -99,4 +105,3 @@ $cor-editar: #7d91c3;
     }
   }
 }
-
