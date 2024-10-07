@@ -12,7 +12,7 @@ $cor-editar: #7d91c3;
 .containerPrincipal {
   margin-top: 4em;
   display: flex;
-  height: 40em;
+  height: fit-content;
   width: 100%;
   justify-content: center;
   gap: 2em;
@@ -173,24 +173,17 @@ $cor-editar: #7d91c3;
       }
     }
 
-    .addTarefas {
-      margin-top: 30em;
-    }
-
     .tarefas {
       width: 70%;
     }
   }
 
   @media (max-width: 494px) {
-    .tarefas {
-      height: 138%;
-    }
+
   }
 
   @media (max-width: 397px) {
     .addTarefas {
-      margin-top: 40em;
     }
   }
 }
