@@ -39,7 +39,7 @@
         <p class="dataTarefa">Criada em: {{ tarefa.dataCriacao | date:'dd/MM/yyyy'}}</p>
         <button class="editar" (click)="editarTarefa(tarefa.id)">Editar</button>
         <button class="excluir" (click)="excluir(tarefa.id)">Excluir</button>
-        <app-editar-tarefa *ngIf="mostrarModal === tarefa.id" (fecharModal)="fecharModal()" [idTarefa]="tarefa.id" atualizar="onAtualizar($event)"></app-editar-tarefa>
+        <app-editar-tarefa *ngIf="mostrarModal === tarefa.id" (fecharModal)="fecharModal()" [idTarefa]="tarefa.id" (atualizar)="onAtualizar($event)"></app-editar-tarefa>
 
       </li>
     </ul>
