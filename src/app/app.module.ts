@@ -8,13 +8,15 @@ import { HeaderComponent } from './header/header.component';
 import { TarefasComponent } from './tarefas/tarefas.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TarefasComponent,
-    EditarTarefaComponent
+    EditarTarefaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
