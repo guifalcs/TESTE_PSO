@@ -1,0 +1,86 @@
+$cor-fundo: #93a5d7;
+$cor-hover: #5e71a0;
+$cor-desativado: rgb(156, 154, 154);
+$cor-excluir: rgb(251, 87, 87);
+$cor-editar: #7d91c3;
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  margin: 5em auto;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px;
+  width: 25em;
+  overflow: hidden;
+
+  h2 {
+    margin: 0 0 1em 0;
+    color: #333;
+    text-align: center;
+  }
+
+  .pergunta {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+
+    label {
+      margin-bottom: 0.5em;
+      color: #555;
+    }
+
+    input {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0.5em;
+      width: 90%;
+
+      &:focus {
+        border-color: $cor-fundo;
+        outline: none;
+      }
+
+      &::placeholder {
+        font-style: italic;
+      }
+    }
+  }
+
+  .botoes {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-top: 2em;
+  }
+
+  button {
+    padding: 0.5em;
+    border: none;
+    border-radius: 5px;
+    width: 50%;
+    cursor: pointer;
+    font-weight: 600;
+    color: #312e2e;
+
+    &.salvar {
+      background-color: $cor-fundo;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: $cor-hover;
+      }
+    }
+
+    &.limpar {
+      background-color: $cor-desativado;
+
+      &:hover {
+        background-color: darken($cor-desativado, 10%);
+      }
+    }
+  }
+}

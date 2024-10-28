@@ -1,1 +1,19 @@
-<p>login works!</p>
+<form formGroup="login">
+  <div class="formContainer">
+    <h2>Login</h2>
+      <div class="pergunta">
+        <label for="usuario">Usuário:</label>
+        <input type="text"/>
+      </div>
+
+      <div class="pergunta">
+        <label for="senha">Senha:</label>
+        <input type="password"/>
+      </div>
+
+      <div class="botoes">
+        <button class="salvar" type="submit" (click)="fazerLogin()">Fazer login</button>
+        <button class="limpar" type="submit" (click)="cadastrar()">Cadastrar</button>
+      </div>
+  </div>
+</form>
