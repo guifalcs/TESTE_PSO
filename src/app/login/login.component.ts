@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,19 +9,39 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class LoginComponent {
 
-  login: FormGroup;
+  loginForm: FormGroup;
+  token;
 
-  constructor(private fb: FormBuilder) {
-    this.login = this.fb.group({
-      email: [''],
-      password: ['']
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService
+  )
+  {
+    this.loginForm = this.fb.group({
+      nome: [''],
+      senha: ['']
     })
   }
 
   fazerLogin(){
   }
 
-  cadastrar(){
+
+
+  cadastrar(nome: string, senha: string){
+
+    if(!nome || !senha){
+      alert("Preencha todos os campos!");
+    } else{
+        this.loginService.cadastrar(nome, senha).subscribe(
+          (data)=>{
+            alert('Usúario cadastrado com sucesso!')
+          },
+          ()=>{
+            alert('Erro ao cadastrar usuário')
+          })
+      this.loginForm.reset()
+   }
   }
 
 }

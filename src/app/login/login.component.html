@@ -1,19 +1,19 @@
-<form formGroup="login">
+<form [formGroup]="loginForm" formGroup="login">
   <div class="formContainer">
     <h2>Login</h2>
       <div class="pergunta">
         <label for="usuario">Usuário:</label>
-        <input type="text"/>
+        <input type="text" formControlName="nome" #nome/>
       </div>
 
       <div class="pergunta">
         <label for="senha">Senha:</label>
-        <input type="password"/>
+        <input type="password" formControlName="senha" #senha/>
       </div>
 
       <div class="botoes">
         <button class="salvar" type="submit" (click)="fazerLogin()">Fazer login</button>
-        <button class="limpar" type="submit" (click)="cadastrar()">Cadastrar</button>
+        <button class="limpar" type="submit" (click)="cadastrar(nome.value, senha.value)">Cadastrar</button>
       </div>
   </div>
 </form>

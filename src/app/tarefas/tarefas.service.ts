@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 export class TarefasService {
 
-  private apiUrl = environment.apiKey;
+  private apiUrl = environment.apiKey + '/tasks';
 
   constructor(private http: HttpClient) {}
 
