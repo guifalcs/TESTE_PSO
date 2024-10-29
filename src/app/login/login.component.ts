@@ -1,24 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoginService } from './login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent{
   loginForm: FormGroup;
   token;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService) {
+  constructor(
+    private fb: FormBuilder,
+    private loginService: LoginService,
+    private router: Router
+    )
+    {
     this.loginForm = this.fb.group({
       nome: [''],
       senha: [''],
     });
   }
-
-  fazerLogin() {}
 
   cadastrar(nome: string, senha: string) {
     if (!nome || !senha) {
@@ -37,4 +41,20 @@ export class LoginComponent {
       this.loginForm.reset();
     }
   }
+
+  logar(nome: string, senha: string) {
+    if (!nome || !senha) {
+      alert('Preencha todos os campos!');
+    } else {
+      this.loginService.logar(nome, senha).subscribe(
+        (data) => {
+          this.token = data.token
+          localStorage.setItem('token', this.token);
+          this.router.navigate(['/tarefas'])
+      },
+        () => {
+          alert('Dados inválidos!')
+    })
+  }
+}
 }
