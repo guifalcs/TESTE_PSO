@@ -1,3 +1,4 @@
+import { AuthService } from './../guards/auth.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoginService } from './login.service';
@@ -15,7 +16,8 @@ export class LoginComponent{
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
     )
     {
     this.loginForm = this.fb.group({
@@ -46,10 +48,15 @@ export class LoginComponent{
     if (!nome || !senha) {
       alert('Preencha todos os campos!');
     } else {
+
+      if(this.authService.getToken()){
+        this.router.navigate(['/tarefas']);
+        return
+      }
+
       this.loginService.logar(nome, senha).subscribe(
         (data) => {
-          this.token = data.token
-          localStorage.setItem('token', this.token);
+          this.authService.setToken(data.token)
           this.router.navigate(['/tarefas'])
       },
         () => {
